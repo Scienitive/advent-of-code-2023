@@ -10,11 +10,11 @@ def main():
     for i in range(4):
         time = times[i]
         distance = distances[i]
-        winners = []
+        winners = 0
         for j in range(1, time):
             if (time-j)*j > distance:
-                winners.append((time-j)*j)
-        total1 *= len(winners)
+                winners += 1
+        total1 *= winners
 
     print(f"First answer: {total1}")
 
@@ -31,11 +31,11 @@ def main():
     time = int(time_str)
     distance = int(distance_str)
 
-    winners = []
+    winners = 0
     for i in range(1, time):
         if (time-i)*i > distance:
-            winners.append((time-i)*i)
+            winners += 1
 
-    print(f"Second answer: {len(winners)}")
+    print(f"Second answer: {winners}")
 
 main()
