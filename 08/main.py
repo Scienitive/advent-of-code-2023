@@ -1,3 +1,5 @@
+import math
+
 def main():
     file = open("input.txt", "r")
     lines = file.readlines()
@@ -21,18 +23,7 @@ def main():
         if len(line) > 3 and line[2] == "A":
             numbers.append(get_loop_info(line[:3], lines))
 
-    print(f"Second answer: {lcm(numbers)}")
-
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
-def lcm(numbers):
-    result = 1
-    for num in numbers:
-        result = (result * num) // gcd(result, num)
-    return result
+    print(f"Second answer: {math.lcm(*numbers)}")
 
 def get_loop_info(name, lines):
     stops = [[name, 0]]
